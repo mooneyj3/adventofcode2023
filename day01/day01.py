@@ -1,22 +1,16 @@
+import re
+
+def extract_first_last(line):
+    return int(re.search(r"\d", line).group() + re.search(r"(\d)(?!.*\d)", line).group())
+
 # PART 1
 def solve_part_1(f):
     running_total = 0
     for l in f:
-        # nums = re.search(r"\d+", l)
-        running_total += int()
-        idx1 = None
-        idx2 = None
-        l_len = len(l)
-        for i in range(l_len):
-            if idx1 is None and str.isdigit(l[i]):
-                idx1 = l[i]
-            if idx2 is None and str.isdigit(l[l_len-i-1]):
-                idx2 = l[l_len-i-1]
-            if idx1 is not None and idx2 is not None:
-                num = int(idx1 + idx2)
-                running_total += num
-                break
+        running_total += extract_first_last(l)
     return running_total
+
+# PART 2
 
 
 if __name__ == "__main__":
