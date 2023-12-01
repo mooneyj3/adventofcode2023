@@ -4,13 +4,6 @@ def extract_first_last(line):
     return int(re.search(r"\d", line).group() + re.search(r"(\d)(?!.*\d)", line).group())
 
 string_to_num = {
-    # "oneight" : "18",
-    # "threeight" : "38",
-    # "fiveight" : "58",
-    # "sevenine" : "79",
-    # "eightwo" : "82",
-    # "eighthree" : "83",
-    # "nineight" : "98",
     "one"  : "o1ne",
     "two"  : "t2we",
     "three": "th3ree",
