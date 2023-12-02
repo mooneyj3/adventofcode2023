@@ -36,14 +36,35 @@ def solve_part_1(file):
             total += game_num
     return total
 
+# Part 2
+# The power of a set of cubes is equal to the numbers of red, green, and blue 
+# cubes multiplied together. For each game, find the minimum set of cubes that 
+# must have been present. 
+# What is the sum of the power of these sets?
 def solve_part_2(file):
-    return 0
+    total = 0
+    for l in file:
+        game_num, line = parse_game_line(l)
+        values = {
+            "blue" : 0,
+            "red" : 0, 
+            "green" : 0
+        }
+        for result in line:
+            for colors in result:
+                col_cnt = colors.split(" ")
+                if int(col_cnt[0]) > values[col_cnt[1]]:
+                    values[col_cnt[1]] = int(col_cnt[0])
+        # print(line)
+        # [['5 green', '8 blue'], ['3 blue', '4 red', '16 green'], ['1 green', '5 red', '6 blue']]
+        total += values["blue"] * values["red"] * values["green"]
+    return total
 
 if __name__ == "__main__":
     input_file = "day02/day02.input"
     with open(input_file, 'r') as f:
         result = solve_part_1(f)
-        print("DAY 1 (part 1): %d" % (result))
+        print("DAY 2 (part 1): %d" % (result))
     with open(input_file, 'r') as f:
         result = solve_part_2(f)
-        print("DAY 1 (part 2): %d" % (result))
+        print("DAY 2 (part 2): %d" % (result))
