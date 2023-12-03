@@ -7,7 +7,7 @@ string_to_num = {
     "one"  : "o1ne",
     "two"  : "t2we",
     "three": "th3ree",
-    "four" : "fo4ur",
+    "four" : "fo4ur",   
     "five" : "fi5ve",
     "six"  : "s6ix",
     "seven": "se7ven",
